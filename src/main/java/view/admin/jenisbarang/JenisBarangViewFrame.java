@@ -102,6 +102,11 @@ public class JenisBarangViewFrame extends CustomFrame
         btHapus.setText("Hapus");
 
         btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
 
         btTutup.setText("Tutup");
 
@@ -167,6 +172,10 @@ public class JenisBarangViewFrame extends CustomFrame
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        refresh();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
+       refresh();
+    }//GEN-LAST:event_btBatalActionPerformed
 
     /**
      * @param args the command line arguments
