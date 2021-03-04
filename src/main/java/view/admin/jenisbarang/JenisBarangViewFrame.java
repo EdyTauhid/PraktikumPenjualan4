@@ -7,7 +7,9 @@ package view.admin.jenisbarang;
 
 import db.Database;
 import java.awt.Container;
+import java.sql.Connection;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.JenisBarang;
 import template.CustomFrame;
@@ -116,6 +118,11 @@ public class JenisBarangViewFrame extends CustomFrame
         });
 
         btCari.setText("Cari");
+        btCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCariActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,6 +192,24 @@ public class JenisBarangViewFrame extends CustomFrame
     private void btTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTutupActionPerformed
         dispose();
     }//GEN-LAST:event_btTutupActionPerformed
+
+    private void btCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCariActionPerformed
+       String keyword = tfCari.getText();
+    if(!keyword.equals("")){
+        Database db = new Database();
+        Connection con = db.getConnection();
+
+        JenisBarang jenisBarang = new JenisBarang(con);
+        ArrayList<Object> list = jenisBarang.search(keyword);
+        if(!list.isEmpty()){
+            buildTable(list);
+        }else{
+            JOptionPane.showMessageDialog(null, "Data tidak ditemukan");
+        }
+    }else{
+        JOptionPane.showMessageDialog(null, "Isi kata kunci pencarian");
+    }
+    }//GEN-LAST:event_btCariActionPerformed
 
     /**
      * @param args the command line arguments
