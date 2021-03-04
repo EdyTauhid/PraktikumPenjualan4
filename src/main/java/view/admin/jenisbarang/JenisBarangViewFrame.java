@@ -5,12 +5,14 @@
  */
 package view.admin.jenisbarang;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import db.Database;
 import java.awt.Container;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import model.JenisBarang;
 import template.CustomFrame;
 import template.ViewFrameInterface;
@@ -102,6 +104,11 @@ public class JenisBarangViewFrame extends CustomFrame
         btUbah.setText("Ubah");
 
         btHapus.setText("Hapus");
+        btHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHapusActionPerformed(evt);
+            }
+        });
 
         btBatal.setText("Batal");
         btBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +217,32 @@ public class JenisBarangViewFrame extends CustomFrame
         JOptionPane.showMessageDialog(null, "Isi kata kunci pencarian");
     }
     }//GEN-LAST:event_btCariActionPerformed
+
+    private void btHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHapusActionPerformed
+       int barisTerpilih = tbJenisBarang.getSelectedRow();
+
+    if(barisTerpilih >= 0){
+        int pilihan = JOptionPane.showConfirmDialog(null, 
+            "Yakin hapus?", 
+            "Konfirmasi", 
+            JOptionPane.YES_NO_OPTION);
+    
+        if(pilihan == 0){
+            
+            TableModel model = tbJenisbarang.getModel();
+            int id = (int) model.getValueAt(barisTerpilih, 0);
+            
+            Database db = new Database();
+            Connection con = db.getConnection();
+
+            JenisBarang jb = new JenisBarang(con);
+            jb.setId(id);
+            jb.delete();
+        }
+    }else{
+        JOptionPane.showMessageDialog(null, "Pilih dulu datanya");
+    }
+    }//GEN-LAST:event_btHapusActionPerformed
 
     /**
      * @param args the command line arguments
