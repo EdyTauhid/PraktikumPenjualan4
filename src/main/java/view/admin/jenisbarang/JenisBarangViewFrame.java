@@ -5,6 +5,7 @@
  */
 package view.admin.jenisbarang;
 
+import db.Database;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.JenisBarang;
@@ -39,7 +40,7 @@ public class JenisBarangViewFrame extends CustomFrame
         jLabel2 = new javax.swing.JLabel();
         tfCari = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbJenisBarang = new javax.swing.JTable();
+        tbJenisbarang = new javax.swing.JTable();
         btTambah = new javax.swing.JButton();
         btUbah = new javax.swing.JButton();
         btHapus = new javax.swing.JButton();
@@ -78,7 +79,7 @@ public class JenisBarangViewFrame extends CustomFrame
             }
         });
 
-        tbJenisBarang.setModel(new javax.swing.table.DefaultTableModel(
+        tbJenisbarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -86,7 +87,7 @@ public class JenisBarangViewFrame extends CustomFrame
                 "Id", "Jenis Barang"
             }
         ));
-        jScrollPane1.setViewportView(tbJenisBarang);
+        jScrollPane1.setViewportView(tbJenisbarang);
 
         btTambah.setText("Tambah");
 
@@ -203,13 +204,19 @@ public class JenisBarangViewFrame extends CustomFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbJenisBarang;
+    private javax.swing.JTable tbJenisbarang;
     private javax.swing.JTextField tfCari;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void refresh() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tfCari.setText("");
+    Database db = new Database();
+    JenisBarang jenisBarang = new JenisBarang(db.getConnection());
+    ArrayList<Object> list = jenisBarang.read();
+    if(!list.isEmpty()){
+        buildTable(list);
+    }
     }
 
     @Override
