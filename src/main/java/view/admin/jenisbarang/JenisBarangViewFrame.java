@@ -6,6 +6,7 @@
 package view.admin.jenisbarang;
 
 import db.Database;
+import java.awt.Container;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.JenisBarang;
@@ -49,6 +50,11 @@ public class JenisBarangViewFrame extends CustomFrame
         btCari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
@@ -158,6 +164,10 @@ public class JenisBarangViewFrame extends CustomFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCariActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       refresh();
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -234,5 +244,21 @@ public class JenisBarangViewFrame extends CustomFrame
             model.addRow(row);
         }
     }
+    }
+
+    private void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object getContentPane() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void pack() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
