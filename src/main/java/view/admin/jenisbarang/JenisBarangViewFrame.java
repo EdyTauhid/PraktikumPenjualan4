@@ -109,6 +109,11 @@ public class JenisBarangViewFrame extends CustomFrame
         });
 
         btTutup.setText("Tutup");
+        btTutup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTutupActionPerformed(evt);
+            }
+        });
 
         btCari.setText("Cari");
 
@@ -176,6 +181,10 @@ public class JenisBarangViewFrame extends CustomFrame
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
        refresh();
     }//GEN-LAST:event_btBatalActionPerformed
+
+    private void btTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTutupActionPerformed
+        dispose();
+    }//GEN-LAST:event_btTutupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,6 +277,10 @@ public class JenisBarangViewFrame extends CustomFrame
     }
 
     private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void dispose() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
