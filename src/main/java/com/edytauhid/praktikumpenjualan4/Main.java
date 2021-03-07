@@ -8,6 +8,7 @@ package com.edytauhid.praktikumpenjualan4;
 import db.Database;
 import java.sql.Connection;
 import view.admin.jenisbarang.JenisBarangViewFrame;
+import viewcashier.auth.LoginFrame;
 
 /**
  *
@@ -16,8 +17,8 @@ import view.admin.jenisbarang.JenisBarangViewFrame;
 public class Main {
     public static void main(String[] args) {
 
-        JenisBarangViewFrame frame = new JenisBarangViewFrame();
-        frame.customShow();
+        LoginFrame frame = new LoginFrame();
+    frame.customShow();
         
     }
     
