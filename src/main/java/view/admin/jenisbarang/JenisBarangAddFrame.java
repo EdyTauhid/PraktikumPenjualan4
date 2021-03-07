@@ -89,6 +89,11 @@ public class JenisBarangAddFrame extends CustomFrame
         jLabel4.setText("Nama Jenis Barang");
 
         btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
 
         btSimpan.setText("Simpan");
 
@@ -163,6 +168,10 @@ public class JenisBarangAddFrame extends CustomFrame
         tfNamaJenisBarang.setText(namaJenisBarang);
     }
     }//GEN-LAST:event_formWindowActivated
+
+    private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
+      dispose();
+    }//GEN-LAST:event_btBatalActionPerformed
 
     /**
      * @param args the command line arguments
