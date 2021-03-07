@@ -79,6 +79,11 @@ public class LoginFrame extends CustomFrame {
         });
 
         btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
 
         btLogin.setText("Login");
         btLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +168,10 @@ public class LoginFrame extends CustomFrame {
 
     }
     }//GEN-LAST:event_btLoginActionPerformed
+
+    private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btBatalActionPerformed
 
     /**
      * @param args the command line arguments
