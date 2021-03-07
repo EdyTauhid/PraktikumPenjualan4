@@ -223,7 +223,19 @@ public class JenisBarangAddFrame extends CustomFrame
 
     @Override
     public void simpanUbah() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String id = tfId.getText();
+    int idInt = Integer.parseInt(id);
+    String namaJenisBarang = tfNamaJenisBarang.getText();
+
+    Jenisbarang.setId(idInt);
+    jenisBarang.setNamaJenisBarang(namaJenisBarang);
+    
+    if (jenisBarang.update()) {
+        JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+        dispose();
+    } else {
+        JOptionPane.showMessageDialog(null, "Data gagal diubah");
+    }
     }
 }
 
