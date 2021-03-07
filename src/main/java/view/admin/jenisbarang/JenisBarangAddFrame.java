@@ -5,7 +5,11 @@
  */
 package view.admin.jenisbarang;
 
+import db.Database;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.JenisBarang;
 import template.AddFrameInterface;
 import template.CustomFrame;
 
@@ -200,8 +204,21 @@ public class JenisBarangAddFrame extends CustomFrame
     }
 
     @Override
-    public void simpanTambah() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public void simpanTambah() {
+        String namaJenisBarang = tfNamaJenisBarang.getText();
+
+    Database db = new Database();
+    Connection con = db.getConnection();
+            JenisBarang jenisBarang = new JenisBarang(con);
+    jenisBarang.setNamaJenisBarang(namaJenisBarang);
+
+
+    if (jenisBarang.create()) {
+        JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
+        dispose();
+    } else {
+        JOptionPane.showMessageDialog(null, "Data gagal disimpan");
+    }
     }
 
     @Override
@@ -209,3 +226,7 @@ public class JenisBarangAddFrame extends CustomFrame
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
