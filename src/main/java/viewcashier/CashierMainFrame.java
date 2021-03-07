@@ -175,4 +175,8 @@ public void setPengguna(Pengguna pengguna){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNamaLengkap;
     // End of variables declaration//GEN-END:variables
+
+    private void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

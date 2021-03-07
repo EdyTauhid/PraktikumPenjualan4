@@ -5,7 +5,13 @@
  */
 package viewcashier.auth;
 
+import db.Database;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import model.Pengguna;
 import template.CustomFrame;
+import view.admin.jenisbarang.AdminMainFrame;
+import viewcashier.CashierMainFrame;
 
 /**
  *
@@ -75,6 +81,11 @@ public class LoginFrame extends CustomFrame {
         btBatal.setText("Batal");
 
         btLogin.setText("Login");
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +134,36 @@ public class LoginFrame extends CustomFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPasswordActionPerformed
 
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
+        Database db = new Database();
+    Connection connection = db.getConnection();
+    Pengguna pengguna = new Pengguna(connection);
+    
+    String stringPassword = new String(tfPassword.getPassword());
+
+    pengguna.setUsername(tfUsername.getText());
+    pengguna.setPassword(stringPassword);
+    
+    pengguna = pengguna.login();
+    
+    if(pengguna != null){
+        if(pengguna.isIsAdmin()){
+            dispose();
+            AdminMainFrame frame = new AdminMainFrame();
+            frame.setPengguna(pengguna);
+            frame.customShow();
+        }else{
+            dispose();
+            CashierMainFrame frame = new CashierMainFrame();
+            frame.setPengguna(pengguna);
+            frame.customShow();
+        }
+    }else{
+        JOptionPane.showMessageDialog(null, "Login gagal");
+
+    }
+    }//GEN-LAST:event_btLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,4 +209,8 @@ public class LoginFrame extends CustomFrame {
     private javax.swing.JTextField tfPassword;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
