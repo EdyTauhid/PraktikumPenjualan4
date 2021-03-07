@@ -6,12 +6,13 @@
 package viewcashier;
 
 import model.Pengguna;
+import template.CustomFrame;
 
 /**
  *
  * @author User
  */
-public class CashierMainFrame extends javax.swing.JFrame {
+public class CashierMainFrame extends CustomFrame {
    Pengguna pengguna;
     
 public void setPengguna(Pengguna pengguna){
