@@ -6,13 +6,15 @@
 package view.admin.jenisbarang;
 
 import javax.swing.JTextField;
+import template.AddFrameInterface;
+import template.CustomFrame;
 
 /**
  *
  * @author User
  */
-public class JenisBarangAddFrame extends javax.swing.JFrame {
-
+public class JenisBarangAddFrame extends CustomFrame
+   implements AddFrameInterface{
     public JenisBarangAddFrame(JTextField tfNamaJenisBarang) {
         this.tfNamaJenisBarang = tfNamaJenisBarang;
     }
@@ -188,4 +190,19 @@ public class JenisBarangAddFrame extends javax.swing.JFrame {
     private javax.swing.JTextField tfId;
     private javax.swing.JTextField tfNamaJenisBarang;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public boolean dataKosong() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void simpanTambah() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void simpanUbah() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
