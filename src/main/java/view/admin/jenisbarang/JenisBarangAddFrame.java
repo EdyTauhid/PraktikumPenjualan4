@@ -50,6 +50,11 @@ public class JenisBarangAddFrame extends CustomFrame
         btSimpan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -146,6 +151,18 @@ public class JenisBarangAddFrame extends CustomFrame
     private void tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfIdActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Object jenisBarang;
+        // TODO add your handling code here:
+        if (jenisBarang != null) {
+        String id = String.valueOf(jenisBarang.getId());
+        String namaJenisBarang = jenisBarang.getNamaJenisBarang();
+
+        tfId.setText(id);
+        tfNamaJenisBarang.setText(namaJenisBarang);
+    }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
