@@ -6,12 +6,13 @@
 package view.admin.jenisbarang;
 
 import model.Pengguna;
+import template.CustomFrame;
 
 /**
  *
  * @author User
  */
-public class AdminMainFrame extends javax.swing.JFrame {
+public class AdminMainFrame extends CustomFrame {
 
     Pengguna pengguna;
     
