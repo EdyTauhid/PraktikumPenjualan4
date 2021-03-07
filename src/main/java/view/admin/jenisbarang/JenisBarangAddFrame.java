@@ -96,6 +96,11 @@ public class JenisBarangAddFrame extends CustomFrame
         });
 
         btSimpan.setText("Simpan");
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,6 +177,20 @@ public class JenisBarangAddFrame extends CustomFrame
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
       dispose();
     }//GEN-LAST:event_btBatalActionPerformed
+
+    private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
+        boolean tambahData = jenisBarang == null;
+
+    if (!dataKosong()) {
+        if (tambahData) {
+            simpanTambah();
+        } else {
+            simpanUbah();
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Lengkapi data");
+    }
+    }//GEN-LAST:event_btSimpanActionPerformed
 
     /**
      * @param args the command line arguments
