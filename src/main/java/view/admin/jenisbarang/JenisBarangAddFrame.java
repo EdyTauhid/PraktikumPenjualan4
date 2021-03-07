@@ -193,7 +193,10 @@ public class JenisBarangAddFrame extends CustomFrame
 
     @Override
     public boolean dataKosong() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (tfNamaJenisBarang.getText().equals("")) {
+        return true;
+    } else {
+        return false;
     }
 
     @Override
