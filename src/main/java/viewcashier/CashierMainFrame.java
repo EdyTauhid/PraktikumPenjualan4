@@ -43,6 +43,11 @@ public void setPengguna(Pengguna pengguna){
         btTutup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -78,6 +83,11 @@ public void setPengguna(Pengguna pengguna){
         btUbahPassword.setText("Ubah Password");
 
         btTutup.setText("Tutup");
+        btTutup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTutupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,6 +122,14 @@ public void setPengguna(Pengguna pengguna){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTutupActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btTutupActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       lbNamaLengkap.setText(pengguna.getNamaLengkap());
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
