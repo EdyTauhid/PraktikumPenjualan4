@@ -5,12 +5,18 @@
  */
 package viewcashier;
 
+import model.Pengguna;
+
 /**
  *
  * @author User
  */
 public class CashierMainFrame extends javax.swing.JFrame {
-
+   Pengguna pengguna;
+    
+public void setPengguna(Pengguna pengguna){
+    this.pengguna = pengguna;
+}
     /**
      * Creates new form CashierMainFrame
      */
