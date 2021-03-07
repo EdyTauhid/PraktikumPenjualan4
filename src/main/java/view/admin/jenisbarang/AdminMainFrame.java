@@ -79,6 +79,11 @@ public void setPengguna(Pengguna pengguna){
         );
 
         btJenisBarang.setText("Jenis barang");
+        btJenisBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btJenisBarangActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Barang");
 
@@ -151,6 +156,11 @@ public void setPengguna(Pengguna pengguna){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJenisBarangActionPerformed
+       JenisBarangViewFrame frame = new JenisBarangViewFrame();
+    frame.customShow();
+    }//GEN-LAST:event_btJenisBarangActionPerformed
 
     /**
      * @param args the command line arguments
