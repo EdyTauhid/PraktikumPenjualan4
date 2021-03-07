@@ -100,6 +100,11 @@ public class JenisBarangViewFrame extends CustomFrame
         jScrollPane1.setViewportView(tbJenisbarang);
 
         btTambah.setText("Tambah");
+        btTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTambahActionPerformed(evt);
+            }
+        });
 
         btUbah.setText("Ubah");
 
@@ -243,6 +248,11 @@ public class JenisBarangViewFrame extends CustomFrame
         JOptionPane.showMessageDialog(null, "Pilih dulu datanya");
     }
     }//GEN-LAST:event_btHapusActionPerformed
+
+    private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
+        JenisBarangAddFrame frame = new JenisBarangAddFrame();
+    frame.customShow();
+    }//GEN-LAST:event_btTambahActionPerformed
 
     /**
      * @param args the command line arguments
