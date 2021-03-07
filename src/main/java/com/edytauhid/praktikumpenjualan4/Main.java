@@ -7,6 +7,7 @@ package com.edytauhid.praktikumpenjualan4;
 
 import db.Database;
 import java.sql.Connection;
+import view.admin.jenisbarang.JenisBarangViewFrame;
 
 /**
  *
@@ -14,10 +15,11 @@ import java.sql.Connection;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+
+        JenisBarangViewFrame frame = new JenisBarangViewFrame();
+        frame.customShow();
         
-        Database db = new Database();
-        Connection con = db.getConnection();
+    }
     
-}
+        
 }
